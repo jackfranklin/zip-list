@@ -1,27 +1,59 @@
-# TSDX Bootstrap
+# Zip List
 
-This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+A super simple TypeScript implementation of a basic zip list from the ["Making Impossible States Impossible"](https://www.youtube.com/watch?v=IcgmSRJHu_8) talk at Elm Conf by Richard Feldman.
 
-## Local Development
+Used to model a list of data where one item is active. The underlying data structure is:
 
-Below is a list of commands you will probably find useful.
+```js
+{ previous: [1], current: 2, next: [3] }
+```
 
-### `npm start` or `yarn start`
+This module provides a nice wrapper around that data structure with a nice API.
 
-Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
+## Install
 
-<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
+```
+npm install zip-list
+yarn add zip-list
+```
 
-Your library will be rebuilt if you make edits.
+## API
 
-### `npm run build` or `yarn build`
+Construct a zip list using the static `fromArray` method:
 
-Bundles the package to the `dist` folder.
-The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
+```js
+import ZipList from 'zip-list';
 
-<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
+const zip = ZipList.fromArray([1, 2, 3]);
+```
 
-### `npm test` or `yarn test`
+This will set the first item (`1`) as active.
 
-Runs the test watcher (Jest) in an interactive mode.
-By default, runs tests related to files changed since the last commit.
+If you're using TypeScript, you can pass the type through as a generic to `fromArray`:
+
+```ts
+interface MyObj {
+  name: string;
+}
+
+const zip = ZipList.fromArray<MyObj>([{ name: 'alice' }, { name: 'bob' }]);
+```
+
+Fetch and check if an item is active:
+
+```js
+zip.active() === 1;
+zip.isActive(2) === false;
+```
+
+Get the data as an array (useful for rendering):
+
+```js
+zip.asArray() === [1, 2, 3];
+```
+
+And update the active value. This never mutates but returns a new zip:
+
+```js
+const newZip = zip.setActive(2);
+```
