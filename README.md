@@ -10,14 +10,14 @@ Used to model a list of data where one item is active. The underlying data struc
 
 This module provides a nice wrapper around that data structure with a nice API.
 
-## Install
+## Install
 
 ```
 npm install zip-list
 yarn add zip-list
 ```
 
-## API
+## API
 
 Construct a zip list using the static `fromArray` method:
 
