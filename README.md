@@ -1,6 +1,6 @@
 # Zip List
 
-A super simple TypeScript implementation of a basic zip list from the ["Making Impossible States Impossible"](https://www.youtube.com/watch?v=IcgmSRJHu_8) talk at Elm Conf by Richard Feldman.
+A super simple TypeScript implementation of a basic zip list from the ["Making Impossible States Impossible"](https://www.youtube.com/watch?v=IcgmSRJHu_8) talk at Elm Conf by Richard Feldman. You can read more about this in my blog post on [Making Impossible States Impossible in React](https://javascriptplayground.com/avoiding-impossible-states-react/).
 
 Used to model a list of data where one item is active. The underlying data structure is:
 
