@@ -13,8 +13,8 @@ This module provides a nice wrapper around that data structure with a nice API.
 ## Install
 
 ```
-npm install zip-list
-yarn add zip-list
+npm install @jackfranklin/zip-list
+yarn add @jackfranklin/zip-list
 ```
 
 ## API
@@ -22,7 +22,7 @@ yarn add zip-list
 Construct a zip list using the static `fromArray` method:
 
 ```js
-import ZipList from 'zip-list';
+import ZipList from '@jackfranklin/zip-list';
 
 const zip = ZipList.fromArray([1, 2, 3]);
 ```

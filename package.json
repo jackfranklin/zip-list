@@ -1,5 +1,5 @@
 {
-  "name": "zip-list",
+  "name": "@jackfranklin/zip-list",
   "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/zip-list.esm.js",
